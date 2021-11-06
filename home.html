@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+</head>
+<body>
+	<?php
+		session_start();
+		if(isset($_SESSION['mail']) && isset($_SESSION['pass'])){
+			echo "<h1>"."Successful authorization"."</h1>";
+		} else die('You are not authorized');
+
+		if(isset($_GET['do']) && $_GET['do'] == 'exit'){
+			session_destroy();
+			header("location: home.html");
+			die;
+		}
+	?>
+	<p><a href="home.html?do=exit">Logout</a></p>
+</body>
+</html>
