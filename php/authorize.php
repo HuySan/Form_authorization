@@ -5,7 +5,7 @@ function auth_check(){
 	if(isset($_POST['btn1']) && !empty($_POST['auth_mail']) && !empty($_POST['auth_password'])){
 		$res = mysqli_query($connect,"SELECT `mail`,`password` FROM `form` WHERE 1");
 		$res = mysqli_fetch_all($res,MYSQLI_ASSOC);
-	//сессия нужна,чтобы ограничить доступ на эту страницу не авторизованым юзерам
+		
 		foreach($res as $item){
 			if($item['mail'] == $_POST['auth_mail'] && $item['password'] == $_POST['auth_password']){
 				session_start();
